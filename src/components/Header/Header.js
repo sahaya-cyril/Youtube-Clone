@@ -12,7 +12,7 @@ import {
 const Header = () => {
   return (
     <div className="grid grid-flow-col sticky top-0 bg-white">
-      <div className="flex items-center col-span-1 px-5">
+      <div className="flex items-center col-span-1 px-5 mx-1">
         <Menu className="cursor-pointer" />
         <img
           className="h-9 mx-4 cursor-pointer"
