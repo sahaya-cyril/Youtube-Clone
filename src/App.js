@@ -4,11 +4,18 @@ import Header from "./components/Header/Header";
 import Body from "./components/Body/Body";
 import { Provider } from "react-redux";
 import store from "./utils/store/store";
+import MainContainer from "./components/MainContainer/MainContainer";
 
 const appRouter = createBrowserRouter([
   {
     path: "/",
     element: <Body />,
+    children: [
+      {
+        path: "/",
+        element: <MainContainer />,
+      },
+    ],
   },
 ]);
 
