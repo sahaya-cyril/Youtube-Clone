@@ -30,10 +30,16 @@ import {
   FeedbackOutlined,
 } from "@mui/icons-material";
 import SubscriptionRow from "./SubscriptionRow";
+import CollapsibleSidebar from "./CollapsibleSidebar";
+import { useSelector } from "react-redux";
 
 const Sidebar = () => {
+  const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
+
+  if (!isMenuOpen) return <CollapsibleSidebar />;
+
   return (
-    <div className="overflow-y-scroll scrollbar shadow-md w-[18%] my-1">
+    <aside className="fixed h-[calc(100vh-50px)] left-0 z-10 mt-14 overflow-y-scroll scrollbar shadow-md w-60 bg-white">
       <SidebarRow icon={HomeOutlined} title="Home" />
       <SidebarRow icon={ExploreOutlined} title="Explore" />
       <SidebarRow icon={SubscriptionsOutlined} title="Subscription" />
@@ -93,17 +99,19 @@ const Sidebar = () => {
       <SidebarRow icon={FeedbackOutlined} title="Send feedback" />
       <hr className="my-2"></hr>
       <div className="ml-7 my-5 font-semibold text-gray-600 text-xs">
-        <p>About &nbsp; Press &nbsp; Copyright</p>
-        <p>Contact Us &nbsp; Creators</p>
-        <p>Advertise &nbsp;Developers</p>
+        <p className="cursor-pointer">About &nbsp; Press &nbsp; Copyright</p>
+        <p className="cursor-pointer">Contact Us &nbsp; Creators</p>
+        <p className="cursor-pointer">Advertise &nbsp;Developers</p>
         <br />
-        <p>Terms &nbsp; Privacy &nbsp; Policy & Saftey</p>
-        <p>How youtube works</p>
-        <p>Test new features</p>
+        <p className="cursor-pointer">
+          Terms &nbsp; Privacy &nbsp; Policy & Saftey
+        </p>
+        <p className="cursor-pointer">How youtube works</p>
+        <p className="cursor-pointer">Test new features</p>
         <br />
         <p>&#169; 2024 Google LLC </p>
       </div>
-    </div>
+    </aside>
   );
 };
 
