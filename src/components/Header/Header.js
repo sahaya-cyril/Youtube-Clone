@@ -9,21 +9,36 @@ import {
   AccountCircle,
   SearchOutlined,
 } from "@mui/icons-material";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../../utils/store/appSlice";
+import { cacheStorage } from "../../utils/store/searchSlice";
 
 const Header = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [suggestions, setsuggestions] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
 
+  //Getting existing cache from search slice
+  const seachCache = useSelector((store) => store.search);
   const dispach = useDispatch();
+
   const toggleMenuHandler = () => {
     dispach(toggleMenu());
   };
 
   useEffect(() => {
-    getSearchSuggestion();
+    const timer = setTimeout(() => {
+      //Checking for search query in cache
+      if (seachCache[searchQuery]) {
+        setsuggestions(seachCache[searchQuery]);
+      } else {
+        getSearchSuggestion();
+      }
+    }, 200);
+
+    return () => {
+      clearInterval(timer);
+    };
   }, [searchQuery]);
 
   const getSearchSuggestion = async () => {
@@ -32,6 +47,13 @@ const Header = () => {
     );
     const json = await data.json();
     setsuggestions(json[1]);
+
+    //Caching search suggestion results
+    dispach(
+      cacheStorage({
+        [searchQuery]: json[1],
+      })
+    );
   };
 
   return (
