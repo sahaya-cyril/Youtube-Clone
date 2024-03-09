@@ -10,6 +10,7 @@ import {
   ReplyOutlined,
 } from "@mui/icons-material";
 import { youtubeViewCount } from "../../utils/helperFunctions/youtubeViewCount";
+import ChatBox from "../LiveChat/ChatBox";
 
 const Watch = () => {
   const [searchParams] = useSearchParams();
@@ -31,8 +32,8 @@ const Watch = () => {
   };
 
   return (
-    <div className="flex">
-      <div className="grid grid-flow-row w-6/12 h-96 ml-24 mt-16">
+    <div className="flex mt-16">
+      <div className="grid grid-flow-row w-6/12 h-96 ml-24">
         <iframe
           className="rounded-2xl w-full h-[23rem]"
           src={"https://www.youtube.com/embed/" + videoId + "?autoplay=1"}
@@ -65,7 +66,7 @@ const Watch = () => {
             </span>
           </div>
           <div className="flex mx-5">
-            <button className="bg-black px-3 rounded-full text-white">
+            <button className="bg-black px-3 my-1 rounded-full text-white">
               Subscribe
             </button>
           </div>
@@ -88,6 +89,7 @@ const Watch = () => {
           </div>
         </div>
       </div>
+      <ChatBox />
     </div>
   );
 };
