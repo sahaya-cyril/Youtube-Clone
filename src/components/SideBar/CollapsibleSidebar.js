@@ -10,7 +10,7 @@ const CollapsibleSidebar = () => {
   const listItemStyle = `flex items-center flex-col cursor-pointer text-xs rounded-xl m-1 h-16 pt-3 hover:bg-neutral-200`;
 
   return (
-    <aside className="fixed z-10 w-20 mt-14 h-screen bg-white">
+    <aside className="fixed z-10 w-20 h-screen bg-white">
       <div className={listItemStyle}>
         <HomeOutlined />
         <p>Home</p>

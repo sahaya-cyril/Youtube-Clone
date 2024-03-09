@@ -65,8 +65,8 @@ const ChatBox = () => {
           placeholder="Chat..."
           onChange={(e) => setLiveMessage(e.target.value)}
         />
-        <Send className="ml-3" />
-        <LocalAtm className="ml-3" />
+        <Send className="ml-3 cursor-pointer" />
+        <LocalAtm className="ml-3 cursor-pointer" />
       </form>
     </div>
   );

@@ -11,6 +11,7 @@ import {
 } from "@mui/icons-material";
 import { youtubeViewCount } from "../../utils/helperFunctions/youtubeViewCount";
 import ChatBox from "../LiveChat/ChatBox";
+import CommentsContainer from "../Comments/CommentsContainer";
 
 const Watch = () => {
   const [searchParams] = useSearchParams();
@@ -32,7 +33,7 @@ const Watch = () => {
   };
 
   return (
-    <div className="flex mt-16">
+    <div className="flex mt-14 pt-2">
       <div className="grid grid-flow-row w-6/12 h-96 ml-24">
         <iframe
           className="rounded-2xl w-full h-[23rem]"
@@ -88,6 +89,7 @@ const Watch = () => {
             </button>
           </div>
         </div>
+        <CommentsContainer />
       </div>
       <ChatBox />
     </div>
