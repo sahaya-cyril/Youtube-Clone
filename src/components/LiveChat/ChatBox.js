@@ -34,8 +34,9 @@ const ChatBox = () => {
       <p className="font-semibold p-2">Live chat</p>
       <hr></hr>
       <div className="w-full h-80 overflow-y-scroll flex flex-col-reverse">
-        {chatMessages.map((chat) => (
+        {chatMessages.map((chat, index) => (
           <ChatMessage
+            key={index}
             name={chat.name}
             message={chat.message}
             avatar={chat.avatar}
