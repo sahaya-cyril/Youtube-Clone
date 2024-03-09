@@ -1,10 +1,9 @@
 import React from "react";
-import { makeRandomAvatar } from "../../utils/helperFunctions/liveChatHelper";
 
-const ChatMessage = ({ name, message }) => {
+const ChatMessage = ({ name, message, avatar }) => {
   return (
     <div className="flex mt-2 items-center">
-      <img className="w-6 h-6 ml-5" alt="user-icon" src={makeRandomAvatar()} />
+      <img className="w-6 h-6 ml-5" alt="user-icon" src={avatar} />
       <p className="px-2 font-semibold text-xs text-gray-600">{name}</p>
       <p className="text-sm">{message}</p>
     </div>
