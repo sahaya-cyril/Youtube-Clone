@@ -12,6 +12,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../../utils/store/appSlice";
 import { cacheStorage } from "../../utils/store/searchSlice";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -20,6 +21,8 @@ const Header = () => {
 
   //Getting existing cache from search slice
   const seachCache = useSelector((store) => store.search);
+
+  let navigate = useNavigate();
   const dispach = useDispatch();
 
   const toggleMenuHandler = () => {
@@ -56,6 +59,12 @@ const Header = () => {
     );
   };
 
+  const handleSuggestion = (event) => {
+    setSearchQuery(event.target.innerText);
+    setShowSuggestions(false);
+    navigate("/results?search_query=" + encodeURI(event.target.innerText));
+  };
+
   return (
     <header className="fixed top-0 grid grid-flow-col z-50 left-0 right-0 bg-white">
       <div className="flex items-center col-span-1 px-5 mx-1">
@@ -85,7 +94,11 @@ const Header = () => {
           <div className="fixed top-14 bg-white w-[39rem] mr-14 py-2 px-3 rounded-lg shadow-lg">
             <ul>
               {suggestions.map((s) => (
-                <li key={s} className="py-1 px-2 rounded-lg hover:bg-gray-100">
+                <li
+                  key={s}
+                  onMouseDown={(e) => handleSuggestion(e)}
+                  className="py-1 px-2 rounded-lg hover:bg-gray-100"
+                >
                   <SearchOutlined /> &nbsp;&nbsp;{" "}
                   <span className="font-semibold text-lg">{s}</span>
                 </li>

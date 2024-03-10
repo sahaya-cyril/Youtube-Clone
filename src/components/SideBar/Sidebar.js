@@ -39,7 +39,7 @@ const Sidebar = () => {
   if (!isMenuOpen) return <CollapsibleSidebar />;
 
   return (
-    <aside className="fixed h-[calc(100vh-50px)] left-0 z-10 overflow-y-scroll scrollbar shadow-md w-60 bg-white">
+    <aside className="fixed h-[calc(100vh-50px)] left-0 z-10 mt-14 overflow-y-scroll scrollbar shadow-md w-60 bg-white">
       <SidebarRow icon={HomeOutlined} title="Home" />
       <SidebarRow icon={ExploreOutlined} title="Explore" />
       <SidebarRow icon={SubscriptionsOutlined} title="Subscription" />

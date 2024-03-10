@@ -33,8 +33,8 @@ const Watch = () => {
   };
 
   return (
-    <div className="flex mt-14 pt-2">
-      <div className="grid grid-flow-row w-6/12 h-96 ml-24">
+    <div className="flex pt-2">
+      <div className="grid grid-flow-row mt-14 w-6/12 h-96 ml-24">
         <iframe
           className="rounded-2xl w-full h-[23rem]"
           src={"https://www.youtube.com/embed/" + videoId + "?autoplay=1"}

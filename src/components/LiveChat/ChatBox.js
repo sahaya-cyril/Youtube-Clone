@@ -30,7 +30,7 @@ const ChatBox = () => {
   }, []);
 
   return (
-    <div className="mx-5 border border-gray-200 shadow-sm rounded-xl w-4/12">
+    <div className="mx-5 mt-14 border border-gray-200 shadow-sm rounded-xl w-4/12">
       <p className="font-semibold p-2">Live chat</p>
       <hr></hr>
       <div className="w-full h-80 overflow-y-scroll flex flex-col-reverse">
