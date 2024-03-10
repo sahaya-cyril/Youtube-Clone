@@ -1,11 +1,17 @@
 import React, { useEffect, useRef, useState } from "react";
 import VideoCard from "../VideoCard/VideoCard";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const VideoContainer = () => {
   const [videos, setVideos] = useState([]);
   const [hasMore, setHasMore] = useState(false);
   const [nextPage, setNextPage] = useState("");
+
+  const filterBtn = useSelector((store) => store.search.filterbtn);
+  const filterbtnSearch = useSelector((store) => store.search.filterbtnSearch);
+
+  const activeVideos = filterBtn ? filterbtnSearch : videos;
 
   const elementRef = useRef(null);
 
@@ -61,11 +67,17 @@ const VideoContainer = () => {
 
   return (
     <div className="grid grid-cols-4 gap-1 pt-12">
-      {videos.map((video) => (
-        <Link key={video.id} to={"/watch?v=" + video.id}>
-          <VideoCard key={video.id} info={video} />
-        </Link>
-      ))}
+      {activeVideos.map((video) =>
+        filterBtn ? (
+          <Link key={video.id} to={"/watch?v=" + video.id.videoId}>
+            <VideoCard key={video.id} info={video} />
+          </Link>
+        ) : (
+          <Link key={video.id} to={"/watch?v=" + video.id}>
+            <VideoCard key={video.id} info={video} />
+          </Link>
+        )
+      )}
       {hasMore && <div ref={elementRef}>Loading more items...</div>}
     </div>
   );
