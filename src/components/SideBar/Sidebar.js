@@ -35,22 +35,35 @@ import { useSelector } from "react-redux";
 
 const Sidebar = () => {
   const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
+  const isDarkTheme = useSelector((store) => store.theme.isDarkTheme);
 
   if (!isMenuOpen) return <CollapsibleSidebar />;
 
   return (
-    <aside className="fixed h-[calc(100vh-50px)] left-0 z-10 mt-14 overflow-y-scroll scrollbar shadow-md w-60 bg-white">
+    <aside
+      className={`fixed h-[calc(100vh-50px)] left-0 z-10 mt-14 overflow-y-scroll scrollbar shadow-md w-60 bg-white ${
+        isDarkTheme ? "bg-stone-950 text-white" : "bg-white text-black"
+      }`}
+    >
       <SidebarRow icon={HomeOutlined} title="Home" />
       <SidebarRow icon={ExploreOutlined} title="Explore" />
       <SidebarRow icon={SubscriptionsOutlined} title="Subscription" />
-      <hr className="my-2"></hr>
+      <hr
+        className={`my-2 ${
+          isDarkTheme ? "border border-stone-700" : "border border-gray-200"
+        }`}
+      ></hr>
       <SidebarRow icon={VideoLibraryOutlined} title="Library" />
       <SidebarRow icon={History} title="History" />
       <SidebarRow icon={OndemandVideo} title="Your videos" />
       <SidebarRow icon={WatchLaterOutlined} title="Watch later" />
       <SidebarRow icon={ThumbUpOutlined} title="Liked videos" />
       <SidebarRow icon={ExpandMoreOutlined} title="Show more" />
-      <hr className="my-2"></hr>
+      <hr
+        className={`my-2 ${
+          isDarkTheme ? "border border-stone-700" : "border border-gray-200"
+        }`}
+      ></hr>
       <div className="pl-6 mt-5 font-semibold">Subscriptions</div>
       <SubscriptionRow
         image="https://yt3.ggpht.com/ytc/AIdro_mHQCjoGcYG4-2xI-Q7_wI-wNtYVtHbinzm2BIGGg=s88-c-k-c0x00ffffff-no-rj"
@@ -73,7 +86,11 @@ const Sidebar = () => {
         name="Behindwoods TV"
       />
       <SidebarRow icon={ExpandMoreOutlined} title="Show more" />
-      <hr className="my-2"></hr>
+      <hr
+        className={`my-2 ${
+          isDarkTheme ? "border border-stone-700" : "border border-gray-200"
+        }`}
+      ></hr>
       <div className="pl-6 mt-5 font-semibold">Explore</div>
       <SidebarRow icon={WhatshotOutlined} title="Trending" />
       <SidebarRow icon={ShoppingBagOutlined} title="Shopping" />
@@ -86,28 +103,74 @@ const Sidebar = () => {
       <SidebarRow icon={LightbulbOutlined} title="Learning" />
       <SidebarRow icon={DryCleaningOutlined} title="Fashion & Beauty" />
       <SidebarRow icon={PodcastsOutlined} title="Podcasts" />
-      <hr className="my-2"></hr>
+      <hr
+        className={`my-2 ${
+          isDarkTheme ? "border border-stone-700" : "border border-gray-200"
+        }`}
+      ></hr>
       <div className="pl-6 mt-5 font-semibold">More from YouTube</div>
       <SidebarRow icon={YouTube} title="YouTube Premium" premium="true" />
       <SidebarRow icon={LiveTv} title="YouTube Studio" premium="true" />
       <SidebarRow icon={LibraryMusic} title="YouTube Music" premium="true" />
       <SidebarRow icon={YouTube} title="YouTube Kids" premium="true" />
-      <hr className="my-2"></hr>
+      <hr
+        className={`my-2 ${
+          isDarkTheme ? "border border-stone-700" : "border border-gray-200"
+        }`}
+      ></hr>
       <SidebarRow icon={SettingsOutlined} title="Settings" />
       <SidebarRow icon={FlagOutlined} title="Report history" />
       <SidebarRow icon={HelpOutlineOutlined} title="Help" />
       <SidebarRow icon={FeedbackOutlined} title="Send feedback" />
-      <hr className="my-2"></hr>
+      <hr
+        className={`my-2 ${
+          isDarkTheme ? "border border-stone-700" : "border border-gray-200"
+        }`}
+      ></hr>
       <div className="ml-7 my-5 font-semibold text-gray-600 text-xs">
-        <p className="cursor-pointer">About &nbsp; Press &nbsp; Copyright</p>
-        <p className="cursor-pointer">Contact Us &nbsp; Creators</p>
-        <p className="cursor-pointer">Advertise &nbsp;Developers</p>
+        <p
+          className={`cursor-pointer ${
+            isDarkTheme ? "text-stone-300" : "text-black"
+          }`}
+        >
+          About &nbsp; Press &nbsp; Copyright
+        </p>
+        <p
+          className={`cursor-pointer ${
+            isDarkTheme ? "text-stone-300" : "text-black"
+          }`}
+        >
+          Contact Us &nbsp; Creators
+        </p>
+        <p
+          className={`cursor-pointer ${
+            isDarkTheme ? "text-stone-300" : "text-black"
+          }`}
+        >
+          Advertise &nbsp;Developers
+        </p>
         <br />
-        <p className="cursor-pointer">
+        <p
+          className={`cursor-pointer ${
+            isDarkTheme ? "text-stone-300" : "text-black"
+          }`}
+        >
           Terms &nbsp; Privacy &nbsp; Policy & Saftey
         </p>
-        <p className="cursor-pointer">How youtube works</p>
-        <p className="cursor-pointer">Test new features</p>
+        <p
+          className={`cursor-pointer ${
+            isDarkTheme ? "text-stone-300" : "text-black"
+          }`}
+        >
+          How youtube works
+        </p>
+        <p
+          className={`cursor-pointer ${
+            isDarkTheme ? "text-stone-300" : "text-black"
+          }`}
+        >
+          Test new features
+        </p>
         <br />
         <p>&#169; 2024 Google LLC </p>
       </div>

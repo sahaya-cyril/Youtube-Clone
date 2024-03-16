@@ -1,8 +1,10 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { filterSearch } from "../../utils/store/searchSlice";
+import { useSelector } from "react-redux";
 
 const FilterButton = ({ name }) => {
+  const isDarkTheme = useSelector((store) => store.theme.isDarkTheme);
   const dispatch = useDispatch();
 
   const handleFilterSearch = async () => {
@@ -18,7 +20,11 @@ const FilterButton = ({ name }) => {
 
   return (
     <button
-      className="m-2 py-1 px-3 rounded-lg bg-neutral-200"
+      className={`m-2 py-1 px-3 rounded-lg font-semibold ${
+        isDarkTheme
+          ? "bg-stone-800 text-white hover:bg-stone-700"
+          : "bg-neutral-200 hover:bg-neutral-300"
+      }`}
       onClick={handleFilterSearch}
     >
       {name}

@@ -1,10 +1,13 @@
 import React from "react";
 import Sidebar from "../SideBar/Sidebar";
 import { Outlet } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Body = () => {
+  const isDarkTheme = useSelector((store) => store.theme.isDarkTheme);
+
   return (
-    <div>
+    <div className={isDarkTheme ? "bg-stone-950 text-white" : "bg-white"}>
       <Sidebar />
       <Outlet />
     </div>

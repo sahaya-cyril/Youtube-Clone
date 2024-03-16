@@ -11,8 +11,9 @@ import ChatMessage from "./ChatMessage";
 
 const ChatBox = () => {
   const [liveMessage, setLiveMessage] = useState();
-
+  const isDarkTheme = useSelector((store) => store.theme.isDarkTheme);
   const chatMessages = useSelector((store) => store.chat.messages);
+
   const dispach = useDispatch();
 
   useEffect(() => {
@@ -30,9 +31,23 @@ const ChatBox = () => {
   }, []);
 
   return (
-    <div className="mx-5 mt-14 border border-gray-200 shadow-sm rounded-xl w-4/12">
-      <p className="font-semibold p-2">Live chat</p>
-      <hr></hr>
+    <div
+      className={`mx-5 mt-14 shadow-sm rounded-xl w-4/12 border ${
+        isDarkTheme ? "border-stone-700" : "border-gray-200"
+      }`}
+    >
+      <p
+        className={`font-semibold rounded-t-xl p-2 ${
+          isDarkTheme ? "bg-stone-900" : "bg-gray-100"
+        }`}
+      >
+        Live chat
+      </p>
+      <hr
+        className={
+          isDarkTheme ? "border border-stone-700" : "border border-gray-200"
+        }
+      ></hr>
       <div className="w-full h-80 overflow-y-scroll flex flex-col-reverse">
         {chatMessages.map((chat, index) => (
           <ChatMessage
@@ -43,7 +58,11 @@ const ChatBox = () => {
           />
         ))}
       </div>
-      <hr></hr>
+      <hr
+        className={
+          isDarkTheme ? "border border-stone-700" : "border border-gray-200"
+        }
+      ></hr>
       <form
         className="flex items-center w-full p-2 m-2"
         onSubmit={(e) => {
@@ -60,7 +79,11 @@ const ChatBox = () => {
         }}
       >
         <input
-          className="w-4/5 px-2 py-1 bg-gray-100 border border-gray-200 rounded-full"
+          className={`w-4/5 px-2 py-1 rounded-full border ${
+            isDarkTheme
+              ? "border-stone-700 bg-stone-900"
+              : "border-gray-200 bg-gray-100"
+          }`}
           type="text"
           value={liveMessage}
           placeholder="Chat..."

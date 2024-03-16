@@ -1,12 +1,15 @@
 import React from "react";
 import VerifiedIcon from "@mui/icons-material/Verified";
+import { useSelector } from "react-redux";
 import { formatDistanceToNow } from "date-fns";
 import { youtubeViewCount } from "../../utils/helperFunctions/youtubeViewCount";
 
 const VideoCard = ({ info }) => {
+  const isDarkTheme = useSelector((store) => store.theme.isDarkTheme);
+  const darkThemeStyle = `${isDarkTheme ? "text-stone-400" : "text-black"}`;
+
   const { snippet } = info;
   const { channelTitle, title, thumbnails } = snippet;
-  //const { licensedContent } = info?.contentDetails;
 
   const publishedAt = new Date(snippet.publishedAt);
   const publishDate = formatDistanceToNow(publishedAt, { addSuffix: true });
@@ -22,7 +25,9 @@ const VideoCard = ({ info }) => {
         />
         <div>
           <h3 className="text-sm font-semibold line-clamp-2">{title}</h3>
-          <p className="text-sm font-semibold mt-2 leading-3 text-stone-600">
+          <p
+            className={`text-sm font-semibold mt-2 leading-3 ${darkThemeStyle}`}
+          >
             {channelTitle}
 
             {info?.contentDetails?.licensedContent ? (
@@ -31,7 +36,7 @@ const VideoCard = ({ info }) => {
               <p className="pb-1"></p>
             )}
           </p>
-          <div className="flex text-sm leading-3 text-stone-600">
+          <div className={`flex text-sm leading-3 ${darkThemeStyle}`}>
             <span>
               {info?.statistics?.viewCount
                 ? youtubeViewCount(info?.statistics?.viewCount)
