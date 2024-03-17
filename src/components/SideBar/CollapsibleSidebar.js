@@ -6,6 +6,7 @@ import {
   VideoLibraryOutlined,
 } from "@mui/icons-material";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const CollapsibleSidebar = () => {
   const isDarkTheme = useSelector((store) => store.theme.isDarkTheme);
@@ -20,10 +21,12 @@ const CollapsibleSidebar = () => {
         isDarkTheme ? "bg-stone-950 text-white" : "bg-white text-black"
       }`}
     >
-      <div className={listItemStyle}>
-        <HomeOutlined />
-        <p>Home</p>
-      </div>
+      <Link to={"/"}>
+        <div className={listItemStyle}>
+          <HomeOutlined />
+          <p>Home</p>
+        </div>
+      </Link>
       <div className={listItemStyle}>
         <ExploreOutlined />
         <p>Explore</p>

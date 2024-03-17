@@ -14,7 +14,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../../utils/store/appSlice";
 import { cacheStorage } from "../../utils/store/searchSlice";
 import { toggleTheme } from "../../utils/store/themeSlice";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -80,11 +80,13 @@ const Header = () => {
     >
       <div className="flex items-center col-span-1 px-5 mx-1">
         <Menu className="cursor-pointer" onClick={() => toggleMenuHandler()} />
-        <img
-          className="h-9 mx-4 cursor-pointer"
-          alt="youtube-icon"
-          src={isDarkTheme ? YoutubeLogoDark : YoutubeLogoLight}
-        />
+        <Link to={"/"}>
+          <img
+            className="h-9 mx-4 cursor-pointer"
+            alt="youtube-icon"
+            src={isDarkTheme ? YoutubeLogoDark : YoutubeLogoLight}
+          />
+        </Link>
       </div>
       <div className="flex items-center col-span-9 p-2 mx-12">
         <input

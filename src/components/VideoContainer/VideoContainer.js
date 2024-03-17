@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import VideoCard from "../VideoCard/VideoCard";
-import ShimmerVideoContainer from "../ShimmerVideoContainer";
+import ShimmerVideoContainer from "../Shimmer/ShimmerVideoContainer";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -72,8 +72,8 @@ const VideoContainer = () => {
     <div className="grid grid-cols-4 gap-1 pt-12">
       {activeVideos.map((video) =>
         filterBtn ? (
-          <Link key={video.id} to={"/watch?v=" + video.id.videoId}>
-            <VideoCard key={video.id} info={video} />
+          <Link key={video.id.videoId} to={"/watch?v=" + video.id.videoId}>
+            <VideoCard key={video.id.videoId} info={video} />
           </Link>
         ) : (
           <Link key={video.id} to={"/watch?v=" + video.id}>

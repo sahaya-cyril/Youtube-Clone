@@ -45,7 +45,7 @@ const SearchResults = () => {
                   {video?.snippet?.channelTitle}
                 </li>
                 <li className="text-gray-500 text-[12px]">
-                  100 views{" "}
+                  10M views{" "}
                   {(
                     Math.abs(
                       new Date(video?.snippet?.publishedAt) - new Date()

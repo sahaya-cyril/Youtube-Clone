@@ -14,7 +14,6 @@ const FilterButton = ({ name }) => {
         name
     );
     const json = await data.json();
-    console.log(json.items);
     dispatch(filterSearch(json.items));
   };
 

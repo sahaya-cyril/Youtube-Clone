@@ -32,6 +32,7 @@ import {
 import SubscriptionRow from "./SubscriptionRow";
 import CollapsibleSidebar from "./CollapsibleSidebar";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
@@ -41,11 +42,13 @@ const Sidebar = () => {
 
   return (
     <aside
-      className={`fixed h-[calc(100vh-50px)] left-0 z-10 mt-14 overflow-y-scroll scrollbar shadow-md w-60 bg-white ${
+      className={`fixed h-[calc(100vh-50px)] left-0 z-10 mt-14 overflow-y-scroll scrollbar shadow-md w-60 ${
         isDarkTheme ? "bg-stone-950 text-white" : "bg-white text-black"
       }`}
     >
-      <SidebarRow icon={HomeOutlined} title="Home" />
+      <Link to={"/"}>
+        <SidebarRow icon={HomeOutlined} title="Home" />
+      </Link>
       <SidebarRow icon={ExploreOutlined} title="Explore" />
       <SidebarRow icon={SubscriptionsOutlined} title="Subscription" />
       <hr
