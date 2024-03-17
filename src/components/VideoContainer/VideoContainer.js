@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import VideoCard from "../VideoCard/VideoCard";
+import ShimmerVideoContainer from "../ShimmerVideoContainer";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -64,6 +65,8 @@ const VideoContainer = () => {
       setHasMore(false);
     }
   };
+
+  if (!activeVideos.length) return <ShimmerVideoContainer />;
 
   return (
     <div className="grid grid-cols-4 gap-1 pt-12">
