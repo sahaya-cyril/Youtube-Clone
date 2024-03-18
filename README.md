@@ -22,6 +22,23 @@ Welcome to our YouTube clone project! 🚀 Get ready to explore its awesome feat
 
 Feel free to use your Google API key and integrate.
 
+## Setting up .env file
+
+Set up your .env file to the root directory of you project and copy paste the below YouTube APIs.
+Note: Create your own google api key.
+
+REACT_APP_GOOGLE_API_KEY ='<YOUR_SECRET_GOOGLE_API_KEY_GOES_HERE>'
+YOUTUBE_VIDEO_BASE_URL = 'https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=IN&key='
+YOUTUBE_VIDEO_DETAIL_BASE_URL ='https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&key='
+YOUTUBE_MORE_VIDEO_BASE_URL = 'https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=25&regionCode=IN&key='
+YOUTUBE_SEARCH_VIDEO_WITH_QUERY_BASE_URL = 'https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&type=video&key='
+REACT_APP_YOUTUBE_VIDEO_URL = ${YOUTUBE_VIDEO_BASE_URL} + ${REACT_APP_GOOGLE_API_KEY}
+REACT_APP_YOUTUBE_VIDEO_DETAIL = ${YOUTUBE_VIDEO_DETAIL_BASE_URL} + ${REACT_APP_GOOGLE_API_KEY}
+REACT_APP_YOUTUBE_SEARCH_API = 'http://suggestqueries.google.com/complete/search?client=youtube&ds=yt&client=firefox&q='
+REACT_APP_YOUTUBE_MORE_VIDEO_URL = ${YOUTUBE_MORE_VIDEO_BASE_URL} + ${REACT_APP_GOOGLE_API_KEY}
+REACT_APP_OFFSET_LIVE_CHAT = 25
+REACT_APP_YOUTUBE_SEARCH_VIDEO_WITH_QUERY = ${YOUTUBE_SEARCH_VIDEO_WITH_QUERY_BASE_URL} + ${REACT_APP_GOOGLE_API_KEY}
+
 ## Contributing 🤝
 
 I welcome your contributions! Whether it's pull requests, bug reports, or new feature ideas, I appreciate your help in making this project even better. Let's build together! 🛠️
