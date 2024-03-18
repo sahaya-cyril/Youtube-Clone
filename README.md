@@ -27,6 +27,7 @@ Feel free to use your Google API key and integrate.
 Set up your .env file to the root directory of you project and copy paste the below YouTube APIs.
 Note: Create your own google api key.
 
+```
 REACT_APP_GOOGLE_API_KEY ='<YOUR_SECRET_GOOGLE_API_KEY_GOES_HERE>'
 YOUTUBE_VIDEO_BASE_URL = 'https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=IN&key='
 YOUTUBE_VIDEO_DETAIL_BASE_URL ='https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&key='
@@ -38,6 +39,7 @@ REACT_APP_YOUTUBE_SEARCH_API = 'http://suggestqueries.google.com/complete/search
 REACT_APP_YOUTUBE_MORE_VIDEO_URL = ${YOUTUBE_MORE_VIDEO_BASE_URL} + ${REACT_APP_GOOGLE_API_KEY}
 REACT_APP_OFFSET_LIVE_CHAT = 25
 REACT_APP_YOUTUBE_SEARCH_VIDEO_WITH_QUERY = ${YOUTUBE_SEARCH_VIDEO_WITH_QUERY_BASE_URL} + ${REACT_APP_GOOGLE_API_KEY}
+```
 
 ## Contributing 🤝
 
